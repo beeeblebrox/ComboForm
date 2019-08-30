@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>HTML-template</title>
+  <base href="/">
+  <meta charset="UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="libs/Magnific-Popup/jquery.magnific-popup.min.js"></script>
+  <script src="libs/maskedinput/jquery.maskedinput.min.js"></script>
+  <link rel="stylesheet" href="libs/Magnific-Popup/magnific-popup.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/style.min.css"> 
+  <script src="js/scripts.min.js"></script>
+</head>
+<body>
+
+
+  <a href="#callback" class="btn-popup">Связаться с нами</a>
+
+  <div id="callback" class="site-popup mfp-hide">
+    <form id="callback-form" class="form form--custom">
+
+    <!-- Заголовок -->
+    <h3 class="form__title">Форма для сайта</h3>
+
+    <!-- Input TEXT -->
+    <label for="callback-name" class="form__label">Ваше имя:</label>
+    <input id="callback-name" class="form__input" type="text" name="Имя" placeholder="Имя..." required>
+
+    <!-- Input TEL -->
+    <label for="callback-phone" class="form__label">Ваш номер:</label>
+    <input id="callback-phone" class="form__input" type="tel" name="Номер" placeholder="Номер телефона..." required>
+
+    <!-- Input EMAIL -->
+    <label for="callback-email" class="form__label">Ваш E-mail:</label>
+    <input id="callback-email" class="form__input" type="email" name="Email" placeholder="Email-адрес..." required>
+
+    <!-- Input RADIO -->
+    <label class="form__label">Ваш пол:</label>
+    <label for="callback-sex-male" class="form__label form__label--inline">
+      <input id="callback-sex-male" class="form__radio" type="radio" name="Пол" value="Мужчина" checked> Мужчина
+    </label>
+    <label for="callback-sex-female" class="form__label form__label--inline">
+      <input id="callback-sex-female" class="form__radio" type="radio" name="Пол" value="Женщина"> Женщина
+    </label>
+
+    <!-- Input SELECT -->
+    <label for="callback-address" class="form__label">Ваш город:</label>
+    <select id="callback-address" class="form__select" name="Город" required>
+      <option value="Москва">Москва</option>
+      <option value="Санкт-Петербург">Санкт-Петербург</option>
+      <option value="Красноярск">Красноярск</option>
+      <option value="Сочи">Сочи</option>
+    </select>
+
+    <!-- Input FILE-CUSTOM -->
+    <label class="form__label">Ваше фото:</label>
+    <div class="input-file-wrap">
+      <input id="callback-file" class="form__file" name="userfile[]" placeholder="Выберите файл..." type="file" multiple="multiple" accept=".jpg, .jpeg, .png"">
+      <label for="callback-file" class="form__label input-label input-label--file"><i class="fa fa-paperclip input-label__icon"></i><span class="input-status">Выберите файл</span>
+      </label>
+    </div>
+
+    <!-- Input TEXTAREA -->
+    <label for="callback-message" class="form__label">Ваше сообщение:</label>
+    <textarea id="callback-message" class="form__textarea" name="Сообщение" cols="30" rows="10" placeholder="Сообщение..."></textarea>
+
+    <!-- Input CHECKBOX-CUSTOM -->
+    <div class="input-checkbox-wrap">
+      <input id="callback-subscribe" class="form__checkbox" name="Подписка на рассылку" type="checkbox" value="Согласен">
+      <label for="callback-subscribe" class="form__label input-label input-label--checkbox">Подписаться на рассылку</label>
+    </div>
+
+    <!-- Button -->
+    <button class="form__button button">Отправить</button>
+
+    <!-- Индикатор отправки -->
+    <div class="form__success">
+      Форма отправлена. Спасибо!
+    </div>
+
+  </form>
+  </div>
+
+
+
+ 
+
+</body>
+</html>

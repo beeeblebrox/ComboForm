@@ -1,0 +1,251 @@
+$theme-color: #e53420
+$text-color: #333
+$color-2: #666
+$bgc-input: #fff
+$placeholder-color: #a9a9a9
+$border-color: #ddd
+
+*, *:before, *:after
+  box-sizing: border-box
+  
+body 
+  position: relative
+  margin: 0
+  padding: 0
+  min-width: 320px
+  font-family: Arial, sans-serif
+  background-color: #000
+  color: #000
+  line-height: 1.5
+  font-size: 16px
+  overflow-x: hidden
+
+
+.button 
+  display: inline-block
+  position: relative
+  min-width: 100px
+  padding: 8px 25px
+  border: none
+  font-size: 14px 
+  font-weight: bold
+  text-transform: uppercase
+  color: #fff
+  text-align: center
+  vertical-align: middle
+  cursor: pointer
+  background-color: $theme-color
+  transition: all .25s ease
+  &:hover, &:focus
+    color: #fff
+  &:hover
+    background-color: rgba($theme-color, .8)
+  &:active
+    background-color: rgba($theme-color, .9)
+  
+.site-popup 
+  position: relative
+  width: auto
+  max-width: 450px
+  margin: 40px auto
+  padding: 40px 20px
+  background-color: #fff
+  border-radius: 10px
+  .mfp-close:active
+    top: 0
+  
+.form 
+  input, select, textarea 
+    outline: none !important
+  
+  &__title
+    color: $text-color
+    font-size: 24px
+    font-weight: bold
+    text-transform: uppercase
+    text-align: center
+    margin-bottom: 20px
+  
+  &__label
+    position: relative
+    display: block
+    font-size: 14px
+    color: $color-2
+    padding: 0 20px
+    margin-bottom: 5px
+    &--inline
+      display: inline-block
+      padding: 0 0 0 20px
+    &--required::before
+      content: '*'
+      position: absolute
+      top: 1px
+      left: 5px
+      color: red
+      opacity: .6
+  
+  &__input, &__textarea, &__select
+    position: relative
+    max-width: 100%
+    width: 100%
+    padding: 12px 20px
+    background-color: rgba(#fff, .4)
+    border: 2px solid rgba($border-color, .6)
+    font-size: 14px
+    color: $text-color
+    margin-bottom: 15px
+    transition: all .25s ease
+    &::placeholder
+      color: $placeholder-color
+      font-weight: normal
+    &:hover 
+      border-color: $border-color
+    &:focus 
+      border-color: $theme-color
+  
+  &__radio
+    position: relative
+    top: 2px
+    font-size: 14px
+    color: $text-color
+    margin-right: 5px
+    margin-bottom: 15px
+    
+  &__file
+    position: relative
+    width: 100%
+    padding: 12px 20px
+    background-color: rgba($bgc-input, .4)
+    font-size: 14px
+    color: $text-color
+    margin-bottom: 15px
+  
+  &__button
+    display: block
+    position: relative
+    padding-left: 40px
+    padding-right: 40px
+    margin: 0 auto
+    margin-top: 45px
+    &--loading::before
+      content: ''
+      position: absolute
+      right: 15px
+      width: 15px
+      height: 15px
+      background-image: url(../img/load.svg)
+      background-size: contain
+      background-position: 0 0
+      background-repeat: no-repeat
+  
+  &__success
+    margin-top: 15px
+    display: none
+    justify-content: center
+    align-items: center
+    text-align: left
+    color: #96d51b
+   
+
+  .input-checkbox-wrap 
+    padding-left: 10px
+  
+  .input-label--checkbox 
+    padding: 0
+  
+
+  .form__checkbox 
+    position: absolute
+    opacity: 0
+    z-index: -10
+    margin: 0
+    padding: 0
+  
+
+  .input-label--checkbox::before
+    content: ""
+    color: $text-color
+    display: inline-block
+    font: 12px/12px FontAwesome
+    margin-right: 10px
+    position: relative
+    top: -2px
+    text-align: center
+    text-indent: 0
+    width: 15px
+    height: 15px
+    background-color: rgba($bgc-input, .4)
+    border: 2px solid rgba(200, 200, 200, .9)
+    border-radius: 2px
+    border-image: initial
+    vertical-align: middle
+  
+
+  .form__checkbox:checked + .input-label--checkbox::before
+    content: "\f00c"
+    background-color: $theme-color
+    color: #fff
+    border-color: transparent
+  
+
+  .form__file
+    position: absolute
+    opacity: 0
+    z-index: -10
+    margin: 0
+    padding: 0
+  
+
+  .input-label
+    position: relative
+    z-index: 10
+    cursor: pointer
+    font-weight: normal
+  
+  .input-label__icon
+    margin-right: 5px
+    color: $placeholder-color
+  
+  .input-label--file
+    width: 100%
+    padding: 12px 20px
+    background-color: rgba($bgc-input, .4)
+    border: 2px solid rgba(200, 200, 200, .9)
+    font-size: 14px
+    color: $placeholder-color
+    text-align: center
+    border-radius: 10em
+    margin-bottom: 15px
+    transition: all .25s ease
+  
+  .input-label--file::before
+    content: ''
+    position: absolute
+    top: 6px 
+    left: 8px
+    bottom: 6px
+    right: 8px
+    border-radius: 10em
+    border: 2px dashed rgba(200, 200, 200, .9)
+  
+  .input-label--file:hover 
+    border: 2px solid rgba(200, 200, 200, 1)
+    color: $color-2
+  
+
+  .input-file-wrap
+    position: relative
+  
+
+  .input-file-wrap--dragover .input-label--file
+    background-color: rgba(200, 200, 200, .9)
+    outline-offset: -17px
+  
+
+  .form__file:focus + .input-label
+    border-color: $theme-color
+  
+  .form__file:focus + .input-label
+    border-color: rgba($theme-color, .2)
+  
+

@@ -3,7 +3,8 @@ $(document).ready(function(){
   $('.btn-popup').magnificPopup({
     type: 'inline',
   closeOnBgClick: false, // Отключает закрытие окна при нажатии на фон
-  focus: '#callback-name'
+  focus: '#callback-name',
+  fixedContentPos: false
 });
 
   //Обязательные поля

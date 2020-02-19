@@ -48,19 +48,19 @@ function sendMessage ($to, $subj, $message){ // Кому, тема, сообще
 
   // Settings
   $admin_email = 'name@yandex.ru'; //E-mail администратора
-
+  $mail->CharSet = 'UTF-8';
   $mail = new PHPMailer;
   $mail->isSMTP();
-  $mail->Host = 'smtp.yandex.ru';
+  $mail->Host = 'smtp.yandex.ru'; // smtp.mail.ru для Mail.ru 
   $mail->SMTPAuth = true;
   $mail->Username = 'name'; // Логин в Яндексе (без @ и домена)
   $mail->Password = '123456789'; // Пароль
   $mail->SMTPSecure = 'ssl';
   $mail->Port = 465;
-  $mail->setFrom('name@yandex.ru'); // Ваш Email
+  $mail->setFrom($admin_email); // Ваш Email (если совпадает с e-mail администратора, то не менять)
   $mail->addAddress($to); // Email получателя
 
-  if ($to === $admin_email){ // Прикрепление файлов к сообщению администратора
+  if ($to === $admin_email){ // Для прикрепление файлов только к сообщению администратора
 
     for ($ct = 0; $ct < count($_FILES['userfile']['tmp_name']); $ct++) {
       $uploadfile = tempnam(sys_get_temp_dir(), sha1($_FILES['userfile']['name'][$ct]));

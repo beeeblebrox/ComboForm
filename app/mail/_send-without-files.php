@@ -2,9 +2,6 @@
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Fields
-$email     = $_POST['Email'];
-
 // Subjects
 $subject_admin  = 'Заявка с сайта';
 
@@ -29,14 +26,15 @@ $message_admin  = '
 //
 
 //SMTP
+$admin_email = 'name@yandex.ru' //Ваш email
 
-$config['smtp_username'] = 'name@yandex.ru'; //Ваш email
+$config['smtp_username'] = $admin_email;
 $config['smtp_port'] = '465';
-$config['smtp_host'] =  'ssl://smtp.yandex.ru';
+$config['smtp_host'] =  'ssl://smtp.yandex.ru'; // smtp.mail.ru для Mail.ru 
 $config['smtp_password'] = '123456789'; //Пароль от почты
 $config['smtp_debug'] = false;  //Если Вы хотите видеть сообщения ошибок, укажите true вместо false
 $config['smtp_charset'] = 'utf-8';
-$config['smtp_from'] = 'name@yandex.ru'; //Ваш email 
+$config['smtp_from'] = $admin_email;
 
 
 function smtpmail($to='', $mail_to, $subject, $message, $headers='') {

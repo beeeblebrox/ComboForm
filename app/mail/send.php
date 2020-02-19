@@ -26,18 +26,21 @@ $message_admin  = '
 
 //
 
-function sendMessage ($subj, $message){ // Тема, сообщение
+function sendMessage ($to, $subj, $message){ // Тема, сообщение
+
+
 
   $mail = new PHPMailer;
+  $mail->CharSet = 'UTF-8';
   $mail->isSMTP();
-  $mail->Host = 'smtp.yandex.ru';
+  $mail->Host = 'smtp.yandex.ru'; // smtp.mail.ru для Mail.ru 
   $mail->SMTPAuth = true;
-  $mail->Username = 'name'; // Логин в Яндексе (без @ и домена)
+  $mail->Username = 'name'; // Логин в Яндексе/Mail (без @ и домена)
   $mail->Password = '123456789'; // Пароль
   $mail->SMTPSecure = 'ssl';
   $mail->Port = 465;
   $mail->setFrom('name@yandex.ru'); // Ваш Email
-  $mail->addAddress('name@yandex.ru'); // Email получателя
+  $mail->addAddress($to); // Email получателя
 
   for ($ct = 0; $ct < count($_FILES['userfile']['tmp_name']); $ct++) {
     $uploadfile = tempnam(sys_get_temp_dir(), sha1($_FILES['userfile']['name'][$ct]));
@@ -63,4 +66,4 @@ function sendMessage ($subj, $message){ // Тема, сообщение
 }
 
 //Вызов функции отправки сообщений. Можно добавлять новых адресатов, если нужно. 
-sendMessage($subject_admin, $message_admin); // Админу
+sendMessage('name@yandex.ru', $subject_admin, $message_admin); // Админу

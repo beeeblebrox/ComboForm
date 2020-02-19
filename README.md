@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Starting HTML-template
 Template for quick started projects.
 
@@ -14,3 +15,11 @@ Template for quick started projects.
 
 
 
+=======
+
+
+
+
+
+
+>>>>>>> 278e4478516f05a3d6f775a5e9f3216f2ebbba08

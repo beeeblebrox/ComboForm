@@ -3,6 +3,7 @@ $(document).ready(function(){
 
   $('.btn-popup').magnificPopup({
     type: 'inline',
+    fixedContentPos: false,
   closeOnBgClick: false, // Отключает закрытие окна при нажатии на фон
   focus: '#callback-name'
 });

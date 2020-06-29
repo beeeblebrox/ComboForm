@@ -1,7 +1,7 @@
 <?php
 
 $method = $_SERVER['REQUEST_METHOD'];
-$subject_admin  = 'Заявка с сайта MOBILEBUNKER.RU';
+$subject_admin  = 'Заявка с сайта';
 // Messages
   
 foreach ( $_POST as $key => $value ) {

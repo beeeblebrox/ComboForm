@@ -9,7 +9,35 @@
   <link rel="stylesheet" href="css/style.min.css"> 
 </head>
 <body>
-
+  
+  <form id="form" class="form">
+    
+    <header class="form__header">
+      <h3 class="form__title">Форма заявки</h3>
+    </header>
+    
+    <div class="form__body">
+      
+      <label for="form-name" class="form__label form__field">
+        <span class="visually-hidden">Ваше имя</span>
+        <input class="form__input" type="text" name="Имя" data-pattern="name" placeholder="Ваше имя">
+      </label>
+    
+      <label for="form-tel" class="form__label form__field">
+        <span class="visually-hidden">Ваш телефон</span>
+        <input class="form__input" type="tel" name="Телефон" data-pattern="tel" placeholder="Ваш телефон" required>
+      </label>
+      
+      <label for="form-tel" class="form__label form__field">
+        <span class="visually-hidden">Ваш email</span>
+        <input class="form__input" type="email" name="Email" data-pattern="email" placeholder="Ваш email" required>
+      </label>
+      
+      <button class="button form__send">Отправить</button>
+      
+    </div>
+    
+  </form>
   
   <script src="js/app.min.js"></script> 
   

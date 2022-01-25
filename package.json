@@ -35,8 +35,7 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "browserslist": [
     "last 2 version",
     "> 1%",

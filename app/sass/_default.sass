@@ -1,0 +1,36 @@
+/** Defaults **/
+
+body, html 
+  height: 100%   
+
+body
+  margin: 50px 0 0
+  padding: 0 30px
+  min-width: 320px
+  overflow-x: hidden
+  @media screen and (max-width: 480px)
+    padding: 0 15px
+
+/** Button **/
+.button 
+  position: relative
+  display: inline-block
+  max-width: 100% 
+  padding: 12px 60px
+  border-radius: 0
+  border: 2px solid orange
+  background-color: orange
+  color: #ffffff
+  font-size: 16px
+  line-height: 1
+  font-weight: normal
+  text-align: center
+  text-decoration: none
+  cursor: pointer
+  transition: all .25s ease
+  &:hover 
+    background-color: lighten(orange, 8%)
+    border-color: lighten(orange, 8%)
+  &:active
+    background-color: darken(orange, 8%)
+    border-color: darken(orange, 8%)

@@ -1,17 +1,107 @@
-/** Default **/
+@import default
 
 *, *:before, *:after
   box-sizing: border-box
 
-body, html 
-  height: 100%   
-
-body
-  margin: 0
+.visually-hidden 
+  position: absolute
+  width: 1px
+  height: 1px
+  margin: -1px
   padding: 0
-  min-width: 320px
-  overflow-x: hidden
+  overflow: hidden
+  border: 0 none
+  clip-path: inset(100%)
+  clip: rect(0 0 0 0)
+  white-space: nowrap
 
 /** Form **/
+
+$form-width: 400px
+$form-centered: true
+$form-bg-color: white
+$form-f-family: Arial, sans-serif
+$form-f-size: 16px
+
+$form-border-width: 2px
+$form-border-color: lightgrey 
+
+$form-inp-placeholder-color: grey
+$form-inp-border-width: 1px
+$form-inp-border-color: lightgrey
+$form-inp-outline-color: orange
+$form-inp-outline-color-invalid: crimson
+$form-inp-outline-color-valid: lightgreen
+
+
+.form 
+  position: relative
+  width: $form-width
+  background-color: $form-bg-color
+  border: $form-border-width solid $form-border-color
+  padding: 60px 30px
+  font-family: serif
+  font-family: $form-f-family
+  font-size: $form-f-size
+
+  display: flex
+  flex-direction: column
+
+  @if ($form-centered) 
+    margin-left: auto
+    margin-right: auto
+
+/** Form Header **/
+
+.form__title 
+  margin-top: 0
+  font-size: 1.5em
+  line-height: 1.2
+  text-align: center
+
+/** Form Body **/
+
+.form__body 
+  display: flex
+  flex-direction: column
+
+/** Form Field **/
+
+.form__field:not(:last-of-type)
+  margin-bottom: 15px
+
+/** Form Input **/
+
+.form__input
+  width: 100%
+  padding: 8px 16px
+  font-size: inherit 
+  border: $form-inp-border-width solid $form-inp-border-color
+  transition: all .25s ease
+  &::placeholder 
+    color: $form-inp-placeholder-color
+  &:hover 
+    border-color: lighten($form-inp-border-color, 8%)
+  &:focus
+    outline-color: $form-inp-outline-color
+  &:invalid, *.error
+    outline-color: $form-inp-outline-color-invalid
+  // &:valid:required:focus
+  //   outline-color: $form-inp-outline-color-valid
+
+/** Form Send Button **/
+
+.form__send
+  display: block
+  margin: 30px auto 0
+
+
+
+
+
+
+  
+
+
 
 

@@ -23,22 +23,24 @@ $form-bg-color: white
 $form-f-family: Arial, sans-serif
 $form-f-size: 16px
 
-$form-border-width: 2px
-$form-border-color: lightgrey 
+$form-brd-width: 2px
+$form-brd-color: lightgrey 
 
 $form-inp-placeholder-color: grey
-$form-inp-border-width: 1px
+
+$form-inp-border-width: 2px
 $form-inp-border-color: lightgrey
-$form-inp-outline-color: orange
-$form-inp-outline-color-invalid: crimson
-$form-inp-outline-color-valid: lightgreen
+
+$form-inp-focus-color: orange
+$form-inp-invalid-color: crimson
+$form-inp-valid-color: lightgreen
 
 
 .form 
   position: relative
   width: $form-width
   background-color: $form-bg-color
-  border: $form-border-width solid $form-border-color
+  border: $form-brd-width solid $form-brd-color
   padding: 60px 30px
   font-family: serif
   font-family: $form-f-family
@@ -77,17 +79,36 @@ $form-inp-outline-color-valid: lightgreen
   padding: 8px 16px
   font-size: inherit 
   border: $form-inp-border-width solid $form-inp-border-color
+  border-radius: 3.5px
+  outline: none
   transition: all .25s ease
   &::placeholder 
     color: $form-inp-placeholder-color
+
   &:hover 
-    border-color: lighten($form-inp-border-color, 8%)
+    opacity: .7
+
   &:focus
-    outline-color: $form-inp-outline-color
-  &:invalid, *.error
-    outline-color: $form-inp-outline-color-invalid
-  // &:valid:required:focus
-  //   outline-color: $form-inp-outline-color-valid
+    border-color: $form-inp-focus-color
+    &:hover 
+      opacity: 1
+      
+    &:required:valid
+      border-color: $form-inp-valid-color
+
+  &--valid
+    // TODO: add icon
+
+  &:invalid:focus
+    border-color: $form-inp-invalid-color
+
+  &--error, &--error:focus, &--error:valid
+    border-color: $form-inp-invalid-color !important
+
+  
+
+
+  
 
 /** Form Send Button **/
 

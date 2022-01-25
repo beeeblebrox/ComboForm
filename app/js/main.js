@@ -3,32 +3,52 @@ window.addEventListener('load', function () {
   let forms = document.querySelectorAll('form');
   
   for (let form of forms) {
-    form.addEventListener('submit', function(e){
-      if (!inputValidation(this)) {
-        e.preventDefault;
+
+    form.addEventListener('input', function(e){
+      if (!e.target.classList.contains('form__input')){
+        return;
       }
+      let input = e.target;
+      inputValidation(input);
+    })
+
+    form.addEventListener('submit', function(e){
+
+      let inputs = form.querySelectorAll('.form__input');
+      
+      for (let input of inputs) {
+        if (!inputValidation(input)){
+          e.preventDefault();
+        }
+      }
+      
     });
   }
-
-  function inputValidation(form) {
-
+  
+  function inputValidation(input) {
+    
     const rules = {
-      name: /[А-Яа-яЁёa-zA-Z]{2}/,
       email: /\w+@\w+\.\w+/,
       tel: /(\+*[\d()-]){6}/g,
     }
+    
+    let isRequired = input.required;
+    let value = input.value;
+    let pattern = input.dataset.pattern;
 
-    let inputs = form.querySelectorAll('.form__inputs');
-    for (let input of inputs) {
-
-      let pattern = input.dataset.pattern ? input.dataset.pattern : false;
-
-      if (input.value.match(pattern) === null){
+    if (isRequired && pattern) {
+      if (value.match(rules[pattern]) === null){
+        input.classList.add('form__input--error');
         return false;
       }
-      return true;
-      
+      else {
+        input.classList.remove('form__input--error');
+        input.classList.add('form__input--valid');
+        return true;
+      }
     }
+    return true;
+  
   }
   
 });

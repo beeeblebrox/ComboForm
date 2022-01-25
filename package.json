@@ -30,14 +30,12 @@
     "gulp-sourcemaps": "^3.0.0",
     "browser-sync": "^2.27.5",
     "dev-ip": "^1.0.1",
-    "gulp-rsync": "0.0.9",
     "gulp-image": "^6.2.1",
     "gulp-rename": "^2.0.0",
     "del": "^6.0.0",
     "gulp": "^4.0.2"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
   },
   "browserslist": [
     "last 2 version",

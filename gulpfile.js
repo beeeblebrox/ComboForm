@@ -6,7 +6,6 @@ const buildFolder = 'dist'
 const { series, parallel, src, dest, watch } = require('gulp');
 const browserSync   = require('browser-sync').create();
 const devip         = require('dev-ip');
-const rsync         = require('gulp-rsync');
 const postcss       = require('gulp-postcss');
 const sass          = require('gulp-sass')(require('sass'));
 const autoprefixer  = require('autoprefixer');
@@ -111,7 +110,7 @@ function startWatch(){
   watch(`${srcFolder}/{sass, scss}/**/*.{sass, scss}`, buildStyles);
   watch([`${srcFolder}/js/**/*.js`, `!${srcFolder}/js/**/*.min.js`], buildScripts);
   watch(`${srcFolder}/img/**/*`).on('change', browserSync.reload);
-  watch(`${srcFolder}/**/*.{html, twig, tpl, php, json, txt, md, woff, woff2, ttf}`).on('change', browserSync.reload);
+  watch(`${srcFolder}/**/*.{html, php}`).on('change', browserSync.reload);
 }
 
 // Build Project
@@ -121,11 +120,9 @@ function transferToDist() {
     srcFolder + '/css/*.min.css',
     srcFolder + '/js/*.js',
     srcFolder + '/js/*.min.js',
-    srcFolder + '/fonts/**/*',
     srcFolder + '/img/**/*',
-    srcFolder + '/**/*.{html, twig, tpl, php, json, md}',
-    // srcFolder + '/.txt',
-    // srcFolder + '/.htaccess',
+    srcFolder + '/mail/',
+    srcFolder + '/**/*.html',
   ], { base: srcFolder+'/' })
   .pipe(dest(buildFolder))
 }
@@ -134,30 +131,10 @@ function buildClear() {
   return del(buildFolder, { force: true })
 }
 
-function enterNotices() {
-  console.error('Готово. Не забудь удалить sourcemaps! :)');
-}
-
-// Deploy
-function deploy() {
-  return src(buildFolder)
-  .pipe(rsync({
-    root: buildFolder,
-    hostname: 'username@hostname.com',
-    destination: 'yousite/public_html/',
-    recursive: true,
-    archive: true,
-    silent: false,
-    compress: true
-  }))
-}
-
 // Exports
 exports.buildStyles  = buildStyles;
 exports.buildScripts = buildScripts;
-exports.enterNotices = enterNotices;
-exports.build        = series(buildClear, parallel(buildStyles, buildScripts), transferToDist, optimizationImages, enterNotices);
+exports.build        = series(buildClear, parallel(buildStyles, buildScripts), transferToDist, optimizationImages);
 exports.buildClear   = buildClear;
-exports.deploy       = series(buildClear, parallel(buildStyles, buildScripts), transferToDist, optimizationImages, deploy);
 exports.default      = series(parallel(buildStyles, buildScripts), parallel(createServer, startWatch));
 

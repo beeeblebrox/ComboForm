@@ -1,5 +1,5 @@
-# Let's HTML
-Template for quick started projects.
+# ComboForm
+Quick SMTP-form template.
 
 
 

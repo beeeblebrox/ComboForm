@@ -84,25 +84,19 @@ $form-inp-valid-color: lightgreen
   transition: all .25s ease
   &::placeholder 
     color: $form-inp-placeholder-color
-
   &:hover 
     opacity: .7
-
   &:focus
     border-color: $form-inp-focus-color
     &:hover 
       opacity: 1
-      
     &:required:valid
       border-color: $form-inp-valid-color
-
   &--valid
     // TODO: add icon
-
   &:invalid:focus
     border-color: $form-inp-invalid-color
-
-  &--error, &--error:focus, &--error:valid
+  &--error, &--error:focus
     border-color: $form-inp-invalid-color !important
 
   

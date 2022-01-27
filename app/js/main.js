@@ -44,7 +44,6 @@ window.addEventListener('load', function () {
       else {
         input.classList.remove('form__input--error');
         input.classList.add('form__input--valid');
-        return true;
       }
     }
     return true;
